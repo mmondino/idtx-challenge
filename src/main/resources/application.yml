@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:idtx
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  h2:
+    console.enabled: true
+
+server:
+  error:
+    include-stacktrace: never
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
