@@ -52,13 +52,13 @@ class GetPriceServiceTest {
         Mockito.when(this.pricingService.getPriceByBrandAndProductAndPricingDate(brandId, productId, pricingDate))
                 .thenReturn(Optional.of(firstPrice));
 
-        GetPriceRequestModel request = GetPriceRequestModel.builder()
+        GetPriceRequest request = GetPriceRequest.builder()
                 .brandId(brandId)
                 .productId(productId)
                 .pricingDate(pricingDate)
                 .build();
 
-        GetPriceResponseModel response = this.getPriceService.invoke(request);
+        GetPriceResponse response = this.getPriceService.invoke(request);
 
         Assertions.assertEquals(firstPrice.getBrandId(), response.getBrandId());
         Assertions.assertEquals(firstPrice.getProductId(), response.getProductId());
@@ -79,7 +79,7 @@ class GetPriceServiceTest {
         Mockito.when(this.pricingService.getPriceByBrandAndProductAndPricingDate(brandId, productId, pricingDate))
                 .thenReturn(Optional.ofNullable(null));
 
-        GetPriceRequestModel request = GetPriceRequestModel.builder()
+        GetPriceRequest request = GetPriceRequest.builder()
                 .brandId(brandId)
                 .productId(productId)
                 .pricingDate(pricingDate)
@@ -98,7 +98,7 @@ class GetPriceServiceTest {
         Mockito.when(this.pricingService.getPriceByBrandAndProductAndPricingDate(brandId, productId, pricingDate))
                 .thenThrow(TooManyPricesFoundException.class);
 
-        GetPriceRequestModel request = GetPriceRequestModel.builder()
+        GetPriceRequest request = GetPriceRequest.builder()
                 .brandId(brandId)
                 .productId(productId)
                 .pricingDate(pricingDate)

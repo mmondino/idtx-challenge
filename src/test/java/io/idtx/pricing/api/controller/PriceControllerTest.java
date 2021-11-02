@@ -2,8 +2,8 @@ package io.idtx.pricing.api.controller;
 
 import io.idtx.pricing.api.application.problem.ProblemCode;
 import io.idtx.pricing.api.application.problem.ProblemType;
-import io.idtx.pricing.api.application.service.GetPriceRequestModel;
-import io.idtx.pricing.api.application.service.GetPriceResponseModel;
+import io.idtx.pricing.api.application.service.GetPriceRequest;
+import io.idtx.pricing.api.application.service.GetPriceResponse;
 import io.idtx.pricing.api.application.service.GetPriceService;
 import io.idtx.pricing.api.domain.exception.PriceNotFoundException;
 import io.idtx.pricing.api.domain.exception.TooManyPricesFoundException;
@@ -42,13 +42,13 @@ class PriceControllerTest {
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
-        GetPriceRequestModel serviceInvocationRequest = GetPriceRequestModel.builder()
+        GetPriceRequest serviceInvocationRequest = GetPriceRequest.builder()
                 .brandId(1L)
                 .productId(2L)
                 .pricingDate(LocalDateTime.parse("2021-01-01T01:00:00"))
                 .build();
 
-        GetPriceResponseModel serviceInvocationResponse = GetPriceResponseModel
+        GetPriceResponse serviceInvocationResponse = GetPriceResponse
                 .builder()
                 .validFrom(LocalDateTime.parse("2021-01-01T00:00:00"))
                 .validTo(LocalDateTime.parse("2021-12-31T23:59:59"))

@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 
 @Builder
 @Getter
-public class GetPriceResponseModel {
+@Schema(name = "GetPriceResponseModel")
+public class GetPriceResponse {
 
     @Schema(type="string", example = "2020-06-14T10:30:00", description = "The price is valid from this datetime. It is expressed in UTC")
     private LocalDateTime validFrom;

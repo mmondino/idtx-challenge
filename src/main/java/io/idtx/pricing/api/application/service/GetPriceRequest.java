@@ -11,7 +11,8 @@ import java.util.Objects;
 
 @Builder
 @Getter
-public class GetPriceRequestModel {
+@Schema(name = "GetPriceRequestModel")
+public class GetPriceRequest {
 
     @Schema(example = "12345678", description = "Brand identifier")
     @NotNull
@@ -30,7 +31,7 @@ public class GetPriceRequestModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        GetPriceRequestModel that = (GetPriceRequestModel) o;
+        GetPriceRequest that = (GetPriceRequest) o;
         return Objects.equals(pricingDate, that.pricingDate) && Objects.equals(brandId, that.brandId) && Objects.equals(productId, that.productId);
     }
 

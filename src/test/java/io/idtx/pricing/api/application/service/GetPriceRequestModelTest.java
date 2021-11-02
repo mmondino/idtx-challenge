@@ -7,6 +7,6 @@ class GetPriceRequestModelTest {
 
     @Test
     void testEqualsContract() {
-        EqualsVerifier.simple().forClass(GetPriceRequestModel.class).verify();
+        EqualsVerifier.simple().forClass(GetPriceRequest.class).verify();
     }
 }

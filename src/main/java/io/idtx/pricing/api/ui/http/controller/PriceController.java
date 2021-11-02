@@ -1,7 +1,7 @@
 package io.idtx.pricing.api.ui.http.controller;
 
-import io.idtx.pricing.api.application.service.GetPriceRequestModel;
-import io.idtx.pricing.api.application.service.GetPriceResponseModel;
+import io.idtx.pricing.api.application.service.GetPriceRequest;
+import io.idtx.pricing.api.application.service.GetPriceResponse;
 import io.idtx.pricing.api.application.service.GetPriceService;
 import io.idtx.pricing.api.domain.exception.PriceNotFoundException;
 import io.idtx.pricing.api.domain.exception.TooManyPricesFoundException;
@@ -29,7 +29,7 @@ public class PriceController implements PriceApi {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public GetPriceResponseModel getPrice(@Valid GetPriceRequestModel request) throws PriceNotFoundException, TooManyPricesFoundException {
+    public GetPriceResponse getPrice(@Valid GetPriceRequest request) throws PriceNotFoundException, TooManyPricesFoundException {
         return this.getPriceService.invoke(request);
     }
 }

@@ -19,7 +19,7 @@ public class GetPriceService {
         this.pricingService = pricingService;
     }
 
-    public GetPriceResponseModel invoke(GetPriceRequestModel request) throws PriceNotFoundException, TooManyPricesFoundException {
+    public GetPriceResponse invoke(GetPriceRequest request) throws PriceNotFoundException, TooManyPricesFoundException {
 
         Optional<Price> priceOptional = this.pricingService.getPriceByBrandAndProductAndPricingDate(
                 request.getBrandId(),
@@ -34,9 +34,9 @@ public class GetPriceService {
         return this.createResponseModel(priceOptional.get());
     }
 
-    private GetPriceResponseModel createResponseModel(Price price) {
+    private GetPriceResponse createResponseModel(Price price) {
 
-        return GetPriceResponseModel.builder()
+        return GetPriceResponse.builder()
                 .brandId(price.getBrandId())
                 .productId(price.getProductId())
                 .priceListId(price.getPriceListId())
